@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang='en'>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
+    <link rel="stylesheet" type="text/" href="./search-home.component.css" />
+</head>
+<body>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm' crossorigin='anonymous'>
+    <script src='https://code.jquery.com/jquery-3.2.1.slim.min.js' integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN' crossorigin='anonymous'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js' integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q' crossorigin='anonymous'></script>
+    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js' integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl' crossorigin='anonymous'></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class='container' id='search-results'>
+  <a href='https://www.ebay.com'><img src="../assets/ebay_logo.png" id="ebay-pic"></a>
+  <table class='table' id='search-criteria'>
+  <tbody>
+    <div class='form-group'>
+      <tr>
+      <td>
+        <label for='keywords'>Key Words<p id='star'>*</p></label>
+      </td>
+      <td colspan='2'>
+        <input type='text' class='form-control' id='keywords'>
+      </td>
+      </tr>
+      <tr>
+      <td>
+        <label for='price-range'>Price Range</label>
+      </td>
+      <td>
+        <input type='number' class='form-control' id='start-range'>
+      </td>
+      <td>
+        <input type='number' class='form-control' id='end-range'>
+      </td>
+      </tr>
+      <tr>
+      <td>
+      <label for='condition'>Condition</label>
+      </td>
+      <td colspan='2'> 
+       <div class='form-check form-check-inline'>
+          <input class='form-check-input' type='checkbox' id='new' value='new'>
+          <label class='form-check-label' for='condition-new'>New</label>          
+        </div>
+        <div class='form-check form-check-inline'>
+          <input class='form-check-input' type='checkbox' id='very-good' value='very-good'>
+          <label class='form-check-label' for='condition-very-good'>Very Good</label>          
+        </div>
+        <div class='form-check form-check-inline'>
+          <input class='form-check-input' type='checkbox' id='good' value='good'>
+          <label class='form-check-label' for='condition-good'>Good</label>          
+        </div>
+        <div class='form-check form-check-inline'>
+          <input class='form-check-input' type='checkbox' id='acceptable' value='acceptable'>
+          <label class='form-check-label' for='condition-acceptable'>Acceptable</label>          
+        </div>
+        <div class='form-check form-check-inline'>
+          <input class='form-check-input' type='checkbox' id='used' value='used'>
+          <label class='form-check-label' for='condition-used'>Used</label>          
+        </div><!--checkboxes form check inline-->
+      </td>
+      </tr>
+      <tr>
+      <td> 
+        <label for='seller'>Seller</label>
+      </td>
+      <td>
+        <div class='form-check form-check-inline'>
+          <input class='form-check-input' type='checkbox' id='return-accepted' value='return-accepted'>
+          <label class='form-check-label' for='return-accepted'>Return Accepted</label>          
+        </div>
+      </td> 
+      <tr>
+      <td>
+        <label for='shipping'>Shipping</label>
+      </td>
+      <td colspan='2'>
+        <div class='form-check form-check-inline'>
+          <input class='form-check-input' type='checkbox' id='free' value='free'>
+          <label class='form-check-label' for='free'>Free</label>          
+        </div>
+        <div class='form-check form-check-inline'>
+          <input class='form-check-input' type='checkbox' id='expedited' value='expedited'>
+          <label class='form-check-label' for='expedited'>Very Good</label>          
+        </div>
+      </td>
+      </tr>
+      <tr>
+        <td colspan='3' id='buttons'>
+          <button type="button" class="btn btn-primary" id='search-button' onclick="validation();"><i class="fa fa-search"></i> Search</button>
+          <button type="button" class="btn btn-secondary" id='clear-button'>Secondary</button>
+        </td> 
+      </tr>
+    </div><!--formgroup-->
+  </tbody>
+  </table>
+</div><!--container searchresults-->
+
+</body>
+</html>
