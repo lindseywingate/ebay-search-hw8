@@ -9,6 +9,10 @@
   width: 600px; 
 }
 
+label {
+    font-weight: bold;
+}
+
 #star {
   display: inline;
   color: red;

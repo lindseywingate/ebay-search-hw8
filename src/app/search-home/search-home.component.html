@@ -3,20 +3,20 @@
 <head>
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
-    <link rel="stylesheet" type="text/" href="./search-home.component.css" />
+    <link rel='stylesheet' type='text/' href='./search-home.component.css' />
 </head>
 <body>
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm' crossorigin='anonymous'>
     <script src='https://code.jquery.com/jquery-3.2.1.slim.min.js' integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN' crossorigin='anonymous'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js' integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q' crossorigin='anonymous'></script>
     <script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js' integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl' crossorigin='anonymous'></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
 
 <div class='container' id='search-results'>
-  <a href='https://www.ebay.com'><img src="../assets/ebay_logo.png" id="ebay-pic"></a>
+  <a href='https://www.ebay.com'><img src='../assets/ebay_logo.png' id='ebay-pic'></a>
   <table class='table' id='search-criteria'>
   <tbody>
-    <div class='form-group'>
+    <div class='form-group' id='search-form'>
       <tr>
       <td>
         <label for='keywords'>Key Words<p id='star'>*</p></label>
@@ -89,14 +89,36 @@
       </td>
       </tr>
       <tr>
+      <td>
+        <div class='form-group'>
+          <label for='order'>Sort Order</label>  
+        </div>
+      </td>
+      <td colspan='2'>
+        <select class='form-control' id='order-select'>
+          <option>Best Match</option>
+          <option>Price: highest first </option>
+          <option>Price + Shipping: highest first</option>
+          <option>Price + Shipping: lowest first</option>
+        </select>
+      </td>
+      </tr>
+      <tr>
         <td colspan='3' id='buttons'>
-          <button type="button" class="btn btn-primary" id='search-button'><i class="fa fa-search"></i> Search</button>
-          <button type="button" class="btn btn-secondary" id='clear-button'>Secondary</button>
+          <button type='button' class='btn btn-primary' id='search-button'><i class='fa fa-search'></i> Search</button>
+          <button type='reset' class='btn btn-secondary' id='clear-button'>Clear</button>
         </td> 
       </tr>
     </div><!--formgroup-->
   </tbody>
   </table>
+  <div id='alert-div'>
+    <div class='alert alert-warning' role='alert' id='keyword-alert'>
+      Please enter a keyword.  
+    </div>
+    <div class='alert alert-warning' role='alert' id='price-alert'>
+      Please use appropriate values for minPrice/maxPrice.
+    </div>  </div>
 </div><!--container searchresults-->
 
 </body>
