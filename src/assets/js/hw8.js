@@ -22,6 +22,7 @@ $('#search-button').click(function() {
 })
 
 $('#clear-button').click(function() {
+    //clear form..
     $('#keyword-alert').hide();
     $('#price-alert').hide();   
 }) 
