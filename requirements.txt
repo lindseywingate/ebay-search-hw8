@@ -1,0 +1,11 @@
+google==2.0.2
+py2app==0.7.3
+python-dateutil==1.5
+requests==2.23.0
+scandir==1.10.0
+scipy==0.13.0b1
+singledispatch==3.4.0.3
+six==1.12.0
+urllib3==1.25.9
+virtualenv==20.0.21
+xattr==0.6.4
