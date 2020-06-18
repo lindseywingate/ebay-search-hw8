@@ -76,7 +76,7 @@ $(document).on('click', '.btn',function() {
 
 ajaxCall = (url, keywords) => {
     $.ajax({
-        url: 'http://localhost:3000/cat',
+        url: 'hw8-ebay-search.wl.r.appspot.com/cat',
         method: 'GET',
         data: {name: url},
         success: function(result) {
