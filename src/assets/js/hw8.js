@@ -69,7 +69,8 @@ $('#search-button').click(function() {
 
 $(document).on('click', '.btn',function() {
     let id = $(this).attr('id');
-    $(`div${id}`).show();
+    console.log('clicked', id);
+    $(`div${id}`).toggle();
      
 })
 
@@ -109,12 +110,13 @@ processResults = (result, keywords) => {
             </a>
             <p><b>Price:</b>$${item.sellingStatus[0].currentPrice[0].__value__}<p>
             <p><i>${item.location[0]}</i></p>
-            <btn type='button' class='btn btn-light' id='${divCount}'>More Details</button>
-            <div id='div${divCount}'><p>testdiv</p></div>
+            <btn type='button' class='btn btn-light' id='${divCount}'>More Details</btn>
+            <div id='div${divCount}' class='hiddendiv'><p>testdiv</p></div>
         </div>
             
         </div>
         <div>`);
+        $(`#div${divCount}`).hide();
         divCount += 1;
     }
 
