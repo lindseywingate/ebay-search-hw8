@@ -12,4 +12,5 @@ export class ResultsViewComponent implements OnInit {
   ngOnInit(): void {
   }
 
+    
 }
