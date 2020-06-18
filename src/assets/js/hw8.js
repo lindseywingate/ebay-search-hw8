@@ -68,7 +68,9 @@ $('#search-button').click(function() {
 
 
 $(document).on('click', '.btn',function() {
-    console.log($(this).attr('id'));
+    let id = $(this).attr('id');
+    $(`div${id}`).show();
+     
 })
 
 ajaxCall = (url, keywords) => {
@@ -108,7 +110,7 @@ processResults = (result, keywords) => {
             <p><b>Price:</b>$${item.sellingStatus[0].currentPrice[0].__value__}<p>
             <p><i>${item.location[0]}</i></p>
             <btn type='button' class='btn btn-light' id='${divCount}'>More Details</button>
-            <div id='${divCount}><p>testdiv</p></div>
+            <div id='div${divCount}'><p>testdiv</p></div>
         </div>
             
         </div>
