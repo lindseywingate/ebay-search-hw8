@@ -58,5 +58,5 @@ label {
 }
 
 .btn {
-    display: inline;
+    display: inline-block;
 }

@@ -109,8 +109,8 @@ processResults = (result, keywords) => {
                 <p class='ellipsis'>${item.title}</p>
             </a>
             <p><b>Price:</b>$${item.sellingStatus[0].currentPrice[0].__value__}<p>
-            <p><i>${item.location[0]}</i></p>
-                <btn type='button' class='btn btn-light' id='${divCount}'>More Details</btn>
+            <p style='display:inline-block'><i>${item.location[0]}</i></p>
+                <btn type='button' class='btn btn-light' id='${divCount}' style='display: inline-block'>More Details</btn>
             <div id='div${divCount}' class='hiddendiv'><p>testdiv</p></div>
         </div>
         </div>    
