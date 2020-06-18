@@ -98,28 +98,26 @@ processResults = (result, keywords) => {
     for(let item of itemsList) {
         console.log('div', divCount);
        $('#results-div').append(`
-        <div id='product-div'>
-        <div id='item-pic'>
+        <div class='row' style='background-color: lightgray; padding: 20px' class='product-div' id='product-div'>
+        <div class='col-sm-2 my-auto' id='item-pic'>
             <a href='${item.viewItemURL[0]}'>
-                <img id='image' class='img-thumbnail' src=${item.galleryURL[0]}>
+                <img id='image' class='img-fluid' src=${item.galleryURL[0]}>
             </a>
         </div>
-        <div id='item-details'>
+        <div class='col-sm-10 my-auto' id='item-details'>
             <a href=${item.viewItemURL[0]}>
                 <p class='ellipsis'>${item.title}</p>
             </a>
             <p><b>Price:</b>$${item.sellingStatus[0].currentPrice[0].__value__}<p>
             <p><i>${item.location[0]}</i></p>
-            <btn type='button' class='btn btn-light' id='${divCount}'>More Details</btn>
+                <btn type='button' class='btn btn-light' id='${divCount}'>More Details</btn>
             <div id='div${divCount}' class='hiddendiv'><p>testdiv</p></div>
         </div>
-            
-        </div>
-        <div>`);
+        </div>    
+        <div><br>`);
         $(`#div${divCount}`).hide();
         divCount += 1;
     }
-
 }
 
 $('#clear-button').click(function() {
