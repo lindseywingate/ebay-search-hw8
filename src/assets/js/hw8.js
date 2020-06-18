@@ -76,7 +76,7 @@ $(document).on('click', '.btn',function() {
 
 ajaxCall = (url, keywords) => {
     $.ajax({
-        url: 'hw8-ebay-search.wl.r.appspot.com/cat',
+        url: 'https://hw8-ebay-search.wl.r.appspot.com/cat',
         method: 'GET',
         data: {name: url},
         success: function(result) {
