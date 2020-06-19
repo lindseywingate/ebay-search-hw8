@@ -97,8 +97,8 @@ processResults = (result, keywords) => {
     let shippingCost = 0;
     for(let item of itemsList) {
        $('#results-div').append(`
-        <div class='row' style='background-color: lightgray; padding: 20px' class='product-div' id='product-div'>
-        <div class='col-sm-2 my-auto' id='item-pic'>
+        <div class='row' style='background-color: lightgray; margin: auto; border: 20px; padding: 20px;' id='product-div'>
+        <div class='col-sm-2 my-auto' style='margin: auto;'>
             <a href='${item.viewItemURL[0]}'>
                 <img id='image' class='img-fluid' src=${item.galleryURL[0]}>
             </a>

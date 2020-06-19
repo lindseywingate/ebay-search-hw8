@@ -1,12 +1,21 @@
-#ebay-pic {
-  display: block;
-  margin-right: auto;
-  margin-left: auto;
-}
-
 #search-criteria {
   margin: auto;
   width: 600px; 
+}
+
+#results-div {
+    margin: auto;
+    padding: 30px;
+}
+
+#results-listing {
+    margin: auto;
+    border: 20px;
+}
+
+#product-div {
+    border: 10px;
+    margin: auto;
 }
 
 label {
@@ -36,17 +45,6 @@ label {
     max-height: 200px;
     margin: 20px;
 */
-}
-
-#item-pic {
-    display: block;
-    float: left;
-    width: 200px;
-    padding: 20px;  
-    text-align: center;
-    vertical-align: middle;
-    margin-top: auto;
-    margin-bottom: auto;
 }
 
 #item-details {
