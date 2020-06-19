@@ -1,6 +1,7 @@
 $(document).ready(function() {
 $('#keyword-alert').hide();
 $('#price-alert').hide();
+$('#noentries-alert').hide();
 $('#search-button').click(function() {
     event.preventDefault();
     var keywords = document.getElementById('keywords').value; 
@@ -9,8 +10,6 @@ $('#search-button').click(function() {
     if(!keywords)
         $('#keyword-alert').show();
     if(startRange<0 || endRange<0)
-        $('#price-alert').show();
-    if(startRange!=='' && endRange!=='' && startRange>endRange)
         $('#price-alert').show();
 
     //get rest of values
@@ -66,17 +65,16 @@ $('#search-button').click(function() {
 
 })
 
-
 $(document).on('click', '.btn',function() {
     let id = $(this).attr('id');
     console.log('clicked', id);
-    $(`div${id}`).toggle();
-     
+    $(`#div${id}`).toggle();
 })
 
 ajaxCall = (url, keywords) => {
     $.ajax({
-        url: 'https://hw8-ebay-search.wl.r.appspot.com/cat',
+//        url: 'https://hw8-ebay-search-back.wl.r.appspot.com/cat',
+        url: 'http://localhost:3000/cat',
         method: 'GET',
         data: {name: url},
         success: function(result) {
@@ -92,11 +90,12 @@ processResults = (result, keywords) => {
     console.log('pure result', result);
     const itemsList = result.searchResult[0].item;
     console.log('in processresults', itemsList);
-
+    if(result.paginationOutput[0].totalEntries[0] === '0')
+        $('#noentries-alert').show(); 
     $('#results-div').append(`<p>Results for ${keywords}</p>`);
     let divCount = 0;
+    let shippingCost = 0;
     for(let item of itemsList) {
-        console.log('div', divCount);
        $('#results-div').append(`
         <div class='row' style='background-color: lightgray; padding: 20px' class='product-div' id='product-div'>
         <div class='col-sm-2 my-auto' id='item-pic'>
@@ -108,10 +107,30 @@ processResults = (result, keywords) => {
             <a href=${item.viewItemURL[0]}>
                 <p class='ellipsis'>${item.title}</p>
             </a>
-            <p><b>Price:</b>$${item.sellingStatus[0].currentPrice[0].__value__}<p>
+            <p id='p'><b>Price:</b>$${item.sellingStatus[0].currentPrice[0].__value__}<p>
             <p style='display:inline-block'><i>${item.location[0]}</i></p>
                 <btn type='button' class='btn btn-light' id='${divCount}' style='display: inline-block'>More Details</btn>
-            <div id='div${divCount}' class='hiddendiv'><p>testdiv</p></div>
+        </div>
+        <div id='div${divCount}' class='hiddendiv'>
+            <hr>
+            <h6>Basic Information</h6>
+            <hr>
+            <p><b>Category Name: </b>${item.primaryCategory[0].categoryName[0]}</p>        
+            <p><b>Condition: </b>${item.condition[0].conditionDisplayName[0]}</p>
+            <hr>
+            <h6>Shipping Information</h6>
+            <hr>
+            <p><b>Shipping Type: </b>${item.shippingInfo[0].shippingType[0]} </p>
+            <p><b>Ship to Locations: </b>${item.shippingInfo[0].shipToLocations[0]}</p>
+            <p><b>Expedited Shipping: </b>${item.shippingInfo[0].expeditedShipping[0]}</p>
+            <p><b>One Day Shipping Available: </b>${item.shippingInfo[0].oneDayShippingAvailable[0]}</p>
+            <hr>
+            <h6>Listing Information</h6>
+            <hr>
+            <p><b>Best Offer Enabled </b>${item.listingInfo[0].bestOfferEnabled}</p>
+            <p><b>Buy It Now Available </b>${item.listingInfo[0].buyItNowAvailable[0]}</p>
+            <p><b>Listing Type </b>${item.listingInfo[0].listingType[0]}</p>
+            <p><b>Gift </b>${item.listingInfo[0].gift}</p>
         </div>
         </div>    
         <div><br>`);
@@ -126,8 +145,4 @@ $('#clear-button').click(function() {
     $('#price-alert').hide();   
 }) 
 
-
-var clickFunc = function(e) {
-   $(e.currentTarget.id).show();
-}
 });

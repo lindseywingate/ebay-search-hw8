@@ -60,3 +60,7 @@ label {
 .btn {
     display: inline-block;
 }
+
+#p {
+    font-weight: bold;
+}
