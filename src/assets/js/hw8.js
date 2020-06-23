@@ -3,15 +3,20 @@ $('#keyword-alert').hide();
 $('#price-alert').hide();
 $('#noentries-alert').hide();
 $('#search-button').click(function() {
+    let noSend = false;
     event.preventDefault();
     var keywords = document.getElementById('keywords').value; 
     var startRange = document.getElementById('start-range').value;
     var endRange = document.getElementById('end-range').value;
-    if(!keywords)
+    console.log(startRange, endRange);
+    if(!keywords){
         $('#keyword-alert').show();
-    if(startRange<0 || endRange<0)
+        noSend = true;
+}
+    if(startRange && endRange && parseFloat(startRange)>parseFloat(endRange)) {
         $('#price-alert').show();
-
+        noSend = true;
+}
     //get rest of values
     var newCond = document.getElementById('new').checked;
     var usedCond = document.getElementById('used').checked;
@@ -60,7 +65,8 @@ $('#search-button').click(function() {
             url = url + `&itemFilter(${count}).value(${condCount})=${cond}`;
             condCount = condCount + 1;
         }
-    } 
+    }
+    if(!noSend) 
     ajaxCall(url, keywords)
 
 })
@@ -78,10 +84,7 @@ ajaxCall = (url, keywords) => {
         data: {name: url},
         success: function(result) {
             processResults(result, keywords);
-        }, 
-    error: () => {
-        console.log('error with ajax call'); 
-    }
+        } 
     })
 }
 
